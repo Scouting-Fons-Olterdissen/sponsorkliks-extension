@@ -13,7 +13,6 @@ function sk_website_participating() {
 	console.log("checking participation");
 	browser.storage.local.get(["stores"], (items) => {
 		sk_info = items.stores;
-		console.log(sk_info);
 		var i, r;
 		for (i = 0; i < sk_info.length; i++) {
 			r = new RegExp("\\." + sk_info[i].url);

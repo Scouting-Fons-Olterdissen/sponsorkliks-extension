@@ -15,7 +15,6 @@ function sk_store_shops() {
 		.then((response) => response.json())
 		.then((data) => {
 			let stores = data;
-			console.log(stores);
 			let time = new Date();
 			let expiration = time.getTime() + 24 * 60 * 60 * 1000;
 			browser.storage.local.set({ stores, expiration }, () =>
@@ -27,14 +26,11 @@ function sk_store_shops() {
 function sk_refresh_cache() {
 	browser.storage.local.get(["expiration"], (items) => {
 		let expiration = items.expiration;
-		console.log(expiration);
 		if (expiration) {
 			let time = new Date();
 			if (time.getTime() > items.expiration) {
 				console.log("cache expired");
 				sk_store_shops();
-			} else {
-				console.log("valid cache");
 			}
 		} else {
 			console.log("no expiration");
