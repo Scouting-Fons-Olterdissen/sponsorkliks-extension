@@ -4,65 +4,31 @@
 		<title>SponsorKliks - Opties</title>
 		<style>
 			body {
-				padding: 10px;
-			}
-
-			span.info {
-				border-bottom: dotted 1px;
-				cursor: help;
-			}
-
-			hr {
-				border: none;
-				border-bottom: 1px solid #ccc;
-			}
-
-			ul {
-				margin-left: -15px;
-			}
-
-			ul li {
-				list-style-type: none;
-			}
-
-			.separator {
-				margin-top: 30px;
+				padding: 1em;
 			}
 
 			div.actions {
 				display: flex;
 				flex-direction: row;
 				justify-content: flex-end;
-				padding-top: 10px;
-			}
-
-			div.actions button {
-				margin-left: 20px;
+				padding-top: 1em;
 			}
 
 			#status {
-				padding-top: 3px;
 				background-color: rgb(255, 251, 148);
+				margin-right: 20px;
+				padding-top: 3px;
 			}
 		</style>
 	</head>
 
 	<body>
 		<h1 style="margin-top: 0px">Voorkeuren</h1>
-		<ul>
-			<li>
-				<label>
-					<input type="checkbox" id="autoForward" />
-					<span
-						class="info"
-						title="Automatisch sponsoren wanneer ik een webshop bezoek die meedoet aan SponsorKliks"
-						>Automatisch sponsoren</span
-					>
-				</label>
-			</li>
-		</ul>
-
-		<hr class="separator" />
+		<label>
+			<input type="checkbox" id="autoForward" />
+			<span class="info">Automatisch sponsoren</span>
+			<p><em>Automatisch sponsoren wanneer ik een webshop bezoek die meedoet aan SponsorKliks</em></p>
+		</label>
 
 		<div class="actions">
 			<div id="status"></div>
