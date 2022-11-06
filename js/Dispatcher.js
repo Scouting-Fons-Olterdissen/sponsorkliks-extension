@@ -1,48 +1,38 @@
 // Dispatcher.js
+var clubId = browser.runtime.getManifest().club_id;
 
+function dispatch(participating) {
+	console.log("dispatched");
+	browser.storage.local.get({ autoForward: false }, function (items) {
+		let shop_url = sk_link_url(participating.shopnr);
 
-function dispatch() {
-	  var id = 6540;
-	  console.log("dispatched");
-    browser.storage.local.get({
-    	  clubId: 6540, 
-        autoForward: false
+		if (clubId) {
+			id = parseInt(items.clubId);
+			console.log(
+				browser.runtime.getManifest().short_name + " Sponsorkliks: " + clubId
+			);
+			earningsURL =
+				"https://www.sponsorkliks.com/products/commissions.php?club=" + clubId;
+		}
 
-    }, function(items) {
+		if (items.autoForward && getState() == StateEnum.UNVISITED) {
+			console.log(
+				browser.runtime.getManifest().short_name +
+					" Sponsorkliks: autoforward running"
+			);
+			document.cookie = "SponsorKliksSO1=" + StateEnum.SPONSORED;
+			browser.runtime.sendMessage({
+				type: "autoforward",
+				name: "SponsorKliksSO1",
+				value: "sponsored",
+				url: shop_url,
+			});
+		}
 
-    	  if (items.clubId) {
-            id = parseInt(items.clubId);
-            clubId = id;
-            console.log("Sponsorkliks Scouting Fons Olterdissen: " + id);
-            earningsURL = "https://www.sponsorkliks.com/products/commissions.php?club="+ clubId;
-        }
-        
-        if (items.autoForward && (getState() == StateEnum.UNVISITED)) {
-            console.log("Sponsorkliks Scouting Fons Olterdissen: autoforward running");
-            browser.runtime.sendMessage({type: "autoforward", name:"SponsorKliksSFO", 
-                                        value: "sponsored", url: sk_link_url()});
-        }
-        
-        if (getState() == StateEnum.UNVISITED) {
-            $("body")
-                .append(notification())
-                .append("<div class='sk-shadow'></div>")
-                .addClass("sk-body");
-        
-        } else if (getState() == StateEnum.SPONSORED) {
-            $("body")
-                .append(smallnotification());
-        }
-        
-        
-        
-         
-        
-        
-    });
-    
-    
+		if (getState() == StateEnum.UNVISITED) {
+			document.body.appendChild(notification(shop_url));
+		} else if (getState() == StateEnum.SPONSORED) {
+			document.body.appendChild(smallnotification());
+		}
+	});
 }
-
-
-

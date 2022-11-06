@@ -3,18 +3,40 @@
 var month = new Date();
 month.setTime(month.getTime()+(30*24*60*60*1000));
 
-function notification() {
-    notification = jQuery("<div/>", {
-      "class": "sk-notification", 
-      "html": "<div class='sk-wrapper'><img src='"+browser.extension.getURL("images/SFO Logo.svg")+"' /><div class='sk-message'>Je kunt gratis Scouting Fons Olterdissen sponsoren. <a href='#' onclick='document.cookie = \"SponsorKliksSFO="+StateEnum.SPONSORED+"\"; window.location = \""+sk_link_url()+"\"; return false;'>Klik hier om via SponsorKliks te gaan.</a><a class='sk-info' target='_blank' title='SponsorKliks opbrengst bekijken' href='"+earningsURL+"'>i</a><a href='#' onclick='document.body.style.marginTop=0;document.getElementsByClassName(\"sk-notification\")[0].style.display=\"none\";document.getElementsByClassName(\"sk-shadow\")[0].style.display=\"none\";return false;' class='sk-hideIcon' title='verberg'>×</a><div class='sk-hide'><a href='#' onclick='document.body.style.marginTop=0;document.getElementsByClassName(\"sk-notification\")[0].style.display=\"none\";document.getElementsByClassName(\"sk-shadow\")[0].style.display=\"none\";return false;'>verberg</a><br/>voor <a href='#' onclick='document.cookie = \"SponsorKliksSFO="+StateEnum.HIDDEN+"\"; location.reload(); return false;' title='de sessie is afgelopen wanneer u de browser sluit'>deze sessie</a>|<a href='#' onclick='document.cookie = \"SponsorKliksSFO="+StateEnum.HIDDEN+"; expires="+month.toGMTString()+"\"; location.reload(); return false;'>een maand</a></div></div></div>"
-    });
-    return notification;
- }
+function notification(shop_url) {
+	let notification = document.createElement('div');
+	notification.classList.add('sk-notification');
+	notification.innerHTML = `<img src="${browser.extension.getURL("images/logo.svg")}">
+	<span class='sk-message'>
+		Je kunt gratis ${browser.runtime.getManifest().short_name} steunen met Sponsorkliks.
+		<a href='#' onclick='document.cookie = "SponsorKliksSO1=${StateEnum.SPONSORED}"; window.location = "${shop_url}"; return false;'>
+			Klik hier om via SponsorKliks te gaan.
+		</a>
+	</span>
+	<div class='sk-hide'>
+		<a href='#' onclick='document.getElementsByClassName("sk-notification")[0].style.display="none";return false;'>
+			verberg
+		</a> voor <a href='#' onclick='document.cookie = "SponsorKliksSO1=${StateEnum.HIDDEN}"; location.reload(); return false;' title='de sessie is afgelopen wanneer u de browser sluit'>
+			deze sessie
+		</a> | <a href='#' onclick='document.cookie = "SponsorKliksSO1=${StateEnum.HIDDEN}; expires=${month.toGMTString()}"; location.reload(); return false;'>
+		een maand</a>
+	</div>`;
+	return notification;
+}
 
 function smallnotification() { 
-	  smallnotification = jQuery("<div/>", {
-      "class": "sk-notification small",
-      "html": "<div class='sk-wrapper'><img src='"+browser.extension.getURL("images/SFO Logo.svg")+"' /><div class='sk-message'>Bedankt!<div class='sk-message-hidden'> Je sponsort Scouting Fons Olterdissen.<a class='sk-info' target='_blank' title='SponsorKliks opbrengst bekijken' href='"+earningsURL+"'>i</a><a href='#' onclick='document.cookie = \"SponsorKliksSFO="+StateEnum.HIDDEN+"\"; location.reload(); return false;' class='sk-hideIcon' title='verberg'>×</a></div></div></div>"
-    });
-    return smallnotification;
+	let notification = document.createElement('div');
+	notification.classList.add('sk-notification', 'small');
+	notification.innerHTML = `<img src='${browser.extension.getURL("images/logo.svg")}'>
+	<div class='sk-message'>
+		Bedankt!
+		<div class='sk-message-hidden'>
+			Je steunt ${browser.runtime.getManifest().short_name} met Sponsorkliks.
+			<a class='sk-info' target='_blank' href='${earningsURL}'>Bekijk de opbrengsten</a>
+			<a href='#' onclick='document.cookie = "SponsorKliksSO1=${StateEnum.HIDDEN}"; location.reload(); return false;' class='sk-hide'>
+				verberg
+			</a>
+		</div>
+	</div>`;
+	return notification;
 }

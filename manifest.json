@@ -1,48 +1,40 @@
 {
-    "author": "SFO IT",
-    "background":
-    {
-        "scripts": ["background.js"]
-    },
-    "content_scripts": [
-    {
-        "css": [
-            "css/reset.css",
-            "css/inject.css"
-        ],
-        "js": [
-            "js/jquery/jquery.min.js",
-            "js/ShopDatabase.js",
-            "js/State.js",
-            "js/Notification.js",
-            "js/Dispatcher.js",
-            "js/DatabaseLookup.js",
-            "js/Main.js"
-        ],
-        "matches": ["<all_urls>"]
-    }],
-    "description": "Verdien gratis en eenvoudig geld voor Scouting Fons Olterdissen via Sponsorkliks",
-    "homepage_url": "https://olterdissen.nl/",
-    "icons":
-    {
-        "128": "icons/icon128.png",
-        "16": "icons/icon16.png",
-        "32": "icons/icon32.png",
-        "64": "icons/icon64.png"
-    },
-    "manifest_version": 2,
-    "name": "Scouting Fons Olterdissen SponsorKliks",
-    "options_ui":
-    {
-        "browser_style": true,
-        "page": "options.html"
-    },
-    "permissions": [
-        "storage",
-        "tabs",
-        "cookies",
-        "<all_urls>"
-    ],
-    "version": "1.0.0",
-    "web_accessible_resources": ["images/*"]
+	"author": "SFO IT x Scouting Oost 1",
+	"background": {
+		"scripts": ["background.js"]
+	},
+	"content_scripts": [
+		{
+			"css": ["css/reset.css", "css/inject.css"],
+			"js": [
+				"js/ShopDatabase.js",
+				"js/State.js",
+				"js/Notification.js",
+				"js/Dispatcher.js",
+				"js/DatabaseLookup.js",
+				"js/Main.js"
+			],
+			"matches": ["<all_urls>"]
+		}
+	],
+	"description": "Steun Scouting Oost 1 gratis en eenvoudig via Sponsorkliks",
+	"homepage_url": "https://scoutingoost1.nl/steunen/",
+	"icons": {
+		"128": "icons/icon128.png",
+		"16": "icons/icon16.png",
+		"32": "icons/icon32.png",
+		"64": "icons/icon64.png"
+	},
+	"manifest_version": 2,
+	"name": "Scouting Oost 1 - SponsorKliks",
+	"short_name": "Scouting Oost 1",
+	"club_id": 5886,
+	"options_ui": {
+		"browser_style": true,
+		"page": "options.html"
+	},
+	"permissions": ["storage", "tabs", "cookies", "<all_urls>"],
+	"host_permissions": ["https://api.sponsorkliks.com/*"],
+	"version": "1.0.0",
+	"web_accessible_resources": ["images/*"]
 }
