@@ -1,5 +1,4 @@
-var clubId = 6540;
-var earningsURL = "https://www.sponsorkliks.com/products/commissions.php?club="+ clubId;
+var earningsURL = "https://www.sponsorkliks.com/products/commissions.php?club="+ browser.runtime.getManifest().club_id;
 var sk_info = [ { "id": 61, "name": "Coolblue", "URL": "coolblue.nl" },
   { "id": 2906, "name": "Booqify", "URL": "booqify.com" },
   { "id": 85, "name": "Expedia", "URL": "expedia.nl" },

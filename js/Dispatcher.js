@@ -1,11 +1,10 @@
 // Dispatcher.js
+var clubId = browser.runtime.getManifest().club_id;
 
 
 function dispatch() {
-	  var id = 6540;
 	  console.log("dispatched");
     browser.storage.local.get({
-    	  clubId: 6540, 
         autoForward: false
 
     }, function(items) {
@@ -13,12 +12,12 @@ function dispatch() {
     	  if (items.clubId) {
             id = parseInt(items.clubId);
             clubId = id;
-            console.log("Sponsorkliks Scouting Fons Olterdissen: " + id);
+            console.log(browser.runtime.getManifest().short_name + " Sponsorkliks: " + clubId);
             earningsURL = "https://www.sponsorkliks.com/products/commissions.php?club="+ clubId;
         }
         
         if (items.autoForward && (getState() == StateEnum.UNVISITED)) {
-            console.log("Sponsorkliks Scouting Fons Olterdissen: autoforward running");
+            console.log(browser.runtime.getManifest().short_name + " Sponsorkliks: autoforward running");
             browser.runtime.sendMessage({type: "autoforward", name:"SponsorKliksSFO", 
                                         value: "sponsored", url: sk_link_url()});
         }

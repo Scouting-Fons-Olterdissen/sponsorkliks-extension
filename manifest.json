@@ -31,7 +31,9 @@
         "64": "icons/icon64.png"
     },
     "manifest_version": 2,
-    "name": "Scouting Fons Olterdissen SponsorKliks",
+    "name": "Scouting Oost 1 - SponsorKliks",
+    "short_name": "Scouting Oost 1",
+    "club_id": 5886,
     "options_ui":
     {
         "browser_style": true,

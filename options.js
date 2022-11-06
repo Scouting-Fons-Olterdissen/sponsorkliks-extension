@@ -3,10 +3,8 @@
 // Saves options to browser.storage.sync.
 function save_options() {
     var autoForward = document.getElementById('autoForward').checked;
-    var clubId = document.getElementById('clubId').value;
     browser.storage.sync.set({
-        autoForward: autoForward, 
-        clubId: clubId
+        autoForward: autoForward,
     }, function() {
         // Update status to let user know options were saved.
         var status = document.getElementById('status');
@@ -23,11 +21,9 @@ function save_options() {
 function restore_options() {
     // Use default value autoForward = false.
     browser.storage.sync.get({
-        autoForward: false, 
-        clubId: 6540
+        autoForward: false
     }, function(items) {
         document.getElementById('autoForward').checked = items.autoForward;
-        document.getElementById('clubId').value = items.clubId;
     });
 }
 document.addEventListener('DOMContentLoaded', restore_options);

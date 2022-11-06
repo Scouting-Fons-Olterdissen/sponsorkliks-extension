@@ -3,7 +3,7 @@
 
 if (sk_website_participating()) {
     
-    console.log("Sponsorkliks Scouting Fons Olterdissen: participating site detected");    
+    console.log(browser.runtime.getManifest().short_name + ": participating site detected");    
     dispatch();
     
 }
