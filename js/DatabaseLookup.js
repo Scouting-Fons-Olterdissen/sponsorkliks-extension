@@ -12,16 +12,16 @@ function sk_website_participating() {
 	"use strict";
 	console.log("checking participation");
 	browser.storage.local.get(["stores"], (items) => {
-		sk_info = items.stores;
+		let sk_stores = items.stores;
 		var i, r;
-		for (i = 0; i < sk_info.length; i++) {
-			r = new RegExp("\\." + sk_info[i].url);
+		for (i = 0; i < sk_stores.length; i++) {
+			r = new RegExp("\\." + sk_stores[i].url);
 			if (r.test(window.location.origin)) {
 				console.log(
 					browser.runtime.getManifest().short_name +
 						": participating site detected"
 				);
-				dispatch(sk_info[i]);
+				dispatch(sk_stores[i]);
 			}
 		}
 	});
