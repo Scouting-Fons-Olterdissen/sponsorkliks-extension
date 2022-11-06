@@ -1,21 +1,14 @@
-/*global sk_info, clubId */
-
 // DatabaseLookup.js
 
-function sk_link_url() {
+function sk_link_url(shop_id) {
 	"use strict";
-	var i, r;
-	for (i = 0; i < sk_info.length; i++) {
-		r = new RegExp("\\." + sk_info[i].URL);
-		if (r.test(window.location.origin)) {
-			return (
-				"http://www.sponsorkliks.com/link.php?club=" +
-				clubId +
-				"&shop_id=" +
-				sk_info[i].id
-			);
-		}
-	}
+
+	return (
+		"http://www.sponsorkliks.com/link.php?club=" +
+		clubId +
+		"&shop_id=" +
+		shop_id
+	);
 }
 
 function sk_website_participating() {
@@ -26,7 +19,7 @@ function sk_website_participating() {
 	for (i = 0; i < sk_info.length; i++) {
 		r = new RegExp("\\." + sk_info[i].URL);
 		if (r.test(window.location.origin)) {
-			participating = true;
+			participating = sk_info[i];
 		}
 	}
 	return participating;

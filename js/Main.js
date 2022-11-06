@@ -1,8 +1,10 @@
 // Main.js
 
-if (sk_website_participating()) {
+let participating = sk_website_participating();
+
+if (participating) {
 	console.log(
 		browser.runtime.getManifest().short_name + ": participating site detected"
 	);
-	dispatch();
+	dispatch(participating);
 }
