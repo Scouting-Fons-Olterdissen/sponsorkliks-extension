@@ -1,5 +1,5 @@
 {
-    "author": "SFO IT",
+    "author": "SFO IT x Scouting Oost 1",
     "background":
     {
         "scripts": ["background.js"]
@@ -21,8 +21,8 @@
         ],
         "matches": ["<all_urls>"]
     }],
-    "description": "Verdien gratis en eenvoudig geld voor Scouting Fons Olterdissen via Sponsorkliks",
-    "homepage_url": "https://olterdissen.nl/",
+    "description": "Steun Scouting Oost 1 gratis en eenvoudig via Sponsorkliks",
+    "homepage_url": "https://scoutingoost1.nl/steunen/",
     "icons":
     {
         "128": "icons/icon128.png",
