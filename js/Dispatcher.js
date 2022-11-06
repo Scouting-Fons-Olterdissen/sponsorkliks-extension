@@ -20,6 +20,7 @@ function dispatch(participating) {
 				browser.runtime.getManifest().short_name +
 					" Sponsorkliks: autoforward running"
 			);
+            document.cookie = "SponsorKliksSFO=" + StateEnum.SPONSORED;
 			browser.runtime.sendMessage({
 				type: "autoforward",
 				name: "SponsorKliksSFO",
