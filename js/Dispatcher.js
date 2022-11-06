@@ -30,10 +30,7 @@ function dispatch(participating) {
 		}
 
 		if (getState() == StateEnum.UNVISITED) {
-			$("body")
-				.append(notification(shop_url))
-				.append("<div class='sk-shadow'></div>")
-				.addClass("sk-body");
+			$("body").append(notification(shop_url));
 		} else if (getState() == StateEnum.SPONSORED) {
 			$("body").append(smallnotification());
 		}
