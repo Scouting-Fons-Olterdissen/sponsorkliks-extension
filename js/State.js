@@ -18,7 +18,7 @@ var StateEnum = {
 };
 
 function getState() {
-	switch (getCookie("SponsorKliksSFO")) {
+	switch (getCookie("SponsorKliksSO1")) {
 		case "":
 			return StateEnum.UNVISITED;
 			break;
