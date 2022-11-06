@@ -1,70 +1,74 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>SponsorKliks - Opties</title>
-    <style>
-        body {
-            padding: 10px;
-        }
+	<head>
+		<title>SponsorKliks - Opties</title>
+		<style>
+			body {
+				padding: 10px;
+			}
 
-        span.info {
-            border-bottom: dotted 1px;
-            cursor: help;
-        }
+			span.info {
+				border-bottom: dotted 1px;
+				cursor: help;
+			}
 
-        hr {
-            border: none;
-            border-bottom: 1px solid #CCC;
-        }
+			hr {
+				border: none;
+				border-bottom: 1px solid #ccc;
+			}
 
-        ul {
-            margin-left: -15px;
-        }
+			ul {
+				margin-left: -15px;
+			}
 
-        ul li {
-            list-style-type: none;
-        }
+			ul li {
+				list-style-type: none;
+			}
 
-        .separator {
-            margin-top: 30px;
-        }
+			.separator {
+				margin-top: 30px;
+			}
 
-        div.actions {
-            display: flex;
-            flex-direction: row;
-            justify-content: flex-end;
-            padding-top: 10px;
-        }
+			div.actions {
+				display: flex;
+				flex-direction: row;
+				justify-content: flex-end;
+				padding-top: 10px;
+			}
 
-        div.actions button {
-            margin-left: 20px;
-        }
+			div.actions button {
+				margin-left: 20px;
+			}
 
-        #status {
-            padding-top: 3px;
-            background-color: rgb(255, 251, 148);
-        }
-    </style>
-</head>
+			#status {
+				padding-top: 3px;
+				background-color: rgb(255, 251, 148);
+			}
+		</style>
+	</head>
 
-<body>
-<h1 style="margin-top: 0px;">Voorkeuren</h1>
-<ul>
-    <li>
-        <label>
-            <input type="checkbox" id="autoForward">
-            <span class="info" title="Automatisch sponsoren wanneer ik een webshop bezoek die meedoet aan SponsorKliks">Automatisch sponsoren</span>
-        </label>
-    </li>
-</ul>
+	<body>
+		<h1 style="margin-top: 0px">Voorkeuren</h1>
+		<ul>
+			<li>
+				<label>
+					<input type="checkbox" id="autoForward" />
+					<span
+						class="info"
+						title="Automatisch sponsoren wanneer ik een webshop bezoek die meedoet aan SponsorKliks"
+						>Automatisch sponsoren</span
+					>
+				</label>
+			</li>
+		</ul>
 
-<hr class="separator">
+		<hr class="separator" />
 
-<div class="actions">
-    <div id="status"></div>
-    <button id="save">Opslaan</button>
-</div>
+		<div class="actions">
+			<div id="status"></div>
+			<button id="save">Opslaan</button>
+		</div>
 
-<script src="options.js"></script>
-</body>
+		<script src="options.js"></script>
+	</body>
 </html>
