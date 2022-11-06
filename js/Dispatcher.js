@@ -20,7 +20,7 @@ function dispatch(participating) {
 				browser.runtime.getManifest().short_name +
 					" Sponsorkliks: autoforward running"
 			);
-            document.cookie = "SponsorKliksSO1=" + StateEnum.SPONSORED;
+			document.cookie = "SponsorKliksSO1=" + StateEnum.SPONSORED;
 			browser.runtime.sendMessage({
 				type: "autoforward",
 				name: "SponsorKliksSO1",
@@ -30,9 +30,9 @@ function dispatch(participating) {
 		}
 
 		if (getState() == StateEnum.UNVISITED) {
-			$("body").append(notification(shop_url));
+			document.body.appendChild(notification(shop_url));
 		} else if (getState() == StateEnum.SPONSORED) {
-			$("body").append(smallnotification());
+			document.body.appendChild(smallnotification());
 		}
 	});
 }

@@ -7,7 +7,6 @@
 		{
 			"css": ["css/reset.css", "css/inject.css"],
 			"js": [
-				"js/jquery/jquery.min.js",
 				"js/ShopDatabase.js",
 				"js/State.js",
 				"js/Notification.js",
